@@ -58,14 +58,7 @@ if selected == "Database":
             load_images_and_classnames()
             find_encodings(st.session_state.images)
             st.rerun()
-        if tog.st_toggle_switch(label="Remove whole user's database", 
-                    key="Key1", 
-                    default_value=False, 
-                    label_after = False, 
-                    inactive_color = '#D3D3D3', 
-                    active_color="#11567f", 
-                    track_color="#29B5E8"
-                    ):
+        if st.toggle("Drop whole database"):
             st.info("Are you sure?")
             if st.button("Yes"):
                 delete_worker_table(conn)
