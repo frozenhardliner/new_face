@@ -43,7 +43,7 @@ if selected == "Database":
     database_table()
     with col3:
         selected_worker = st.selectbox("Select worker to remove", get_worker_ids(conn))
-        if st.button("Remove worker by ID",type= 'primary'):
+        if st.button("Remove worker by ID"):
             # Remove worker from db
             photo_path = os.path.join('visitor_database', f'{get_max_id(conn)}.jpg')
             cursor = conn.cursor()
