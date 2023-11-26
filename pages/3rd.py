@@ -56,12 +56,12 @@ if selected == "Database":
             st.success(f'Removed worker: {selected_worker}')
             load_images_and_classnames()
             find_encodings(st.session_state.images)
-            st.rerun()
+            st.experimental_rerun()
         if st.button("Drop whole database"):
             st.info("Are you sure?")
             if st.button("Yes"):
                 delete_worker_table(conn)
-                st.rerun()
+                st.experimental_rerun()
 
     with col2:
         new_worker_name = st.text_input("Worker Name:", '')
@@ -99,6 +99,6 @@ if selected == "Database":
                         time.sleep(1)
                         success_message.empty()
                         load_images_and_classnames()
-                        st.rerun() 
+                        st.experimental_rerun() 
 if selected == 'Report':
     st.write("Hello")
