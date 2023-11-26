@@ -5,7 +5,6 @@ from sql_scripts import *
 from image_loader import *
 #from app import load_images_and_classnames, find_encodings
 from streamlit_option_menu import option_menu
-import  streamlit_toggle as tog
 conn = sqlite3.connect("worker_database.db")
 st.set_page_config(
      page_title="User Database",
@@ -58,7 +57,7 @@ if selected == "Database":
             load_images_and_classnames()
             find_encodings(st.session_state.images)
             st.rerun()
-        if st.toggle("Drop whole database"):
+        if st.button("Drop whole database"):
             st.info("Are you sure?")
             if st.button("Yes"):
                 delete_worker_table(conn)
