@@ -35,7 +35,7 @@ def database_table():
             mask = df.applymap(lambda x: query_name.lower().strip() in str(x).lower().strip()).any(axis=1)
             df = df[mask]
         # Apply basic styling to the DataFrame using the 'styler' parameter
-        st.data_editor(df.style
+        st.dataframe(df.style
             .set_properties(**{'font-size': '16px', 'text-align': 'center'})
             .set_table_styles([{'selector': 'th', 'props': [('text-align', 'center')]}])
         , hide_index=True, width=800, height=300) 
