@@ -5,6 +5,7 @@ from sql_scripts import *
 from image_loader import *
 #from app import load_images_and_classnames, find_encodings
 from streamlit_option_menu import option_menu
+import  streamlit_toggle as tog
 conn = sqlite3.connect("worker_database.db")
 st.set_page_config(
      page_title="User Database",
@@ -57,7 +58,22 @@ if selected == "Database":
             load_images_and_classnames()
             find_encodings(st.session_state.images)
             st.rerun()
-        if st.toggle("Remove whole database"):
+             tog.st_toggle_switch(label="Label", 
+                    key="Key1", 
+                    default_value=False, 
+                    label_after = False, 
+                    inactive_color = '#D3D3D3', 
+                    active_color="#11567f", 
+                    track_color="#29B5E8"
+                    )
+        if tog.st_toggle_switch(label="Remove whole user's database", 
+                    key="Key1", 
+                    default_value=False, 
+                    label_after = False, 
+                    inactive_color = '#D3D3D3', 
+                    active_color="#11567f", 
+                    track_color="#29B5E8"
+                    ):
             st.info("Are you sure?")
             if st.button("Yes"):
                 delete_worker_table(conn)
