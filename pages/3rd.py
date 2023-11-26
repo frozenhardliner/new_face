@@ -38,7 +38,7 @@ def database_table():
         st.dataframe(df.style
             .set_properties(**{'font-size': '16px', 'text-align': 'center'})
             .set_table_styles([{'selector': 'th', 'props': [('text-align', 'center')]}])
-        , hide_index=True, width=800, height=300) 
+        , width=800, height=300) 
 if selected == "Database":  
     database_table()
     with col3:
