@@ -43,7 +43,7 @@ if selected == "Database":
     database_table()
     with col3:
         selected_worker = st.selectbox("Select worker to remove", get_worker_ids(conn))
-        if st.button("Remove worker by ID"):
+        if st.button("Remove worker by ID", type = 'primary'):
             # Remove worker from db
             photo_path = os.path.join('visitor_database', f'{get_max_id(conn)}.jpg')
             cursor = conn.cursor()
@@ -57,7 +57,7 @@ if selected == "Database":
             load_images_and_classnames()
             find_encodings(st.session_state.images)
             st.experimental_rerun()
-        if st.button("Drop whole database"):
+        if st.toggle("Drop whole database"):
             st.info("Are you sure?")
             if st.button("Yes"):
                 delete_worker_table(conn)
