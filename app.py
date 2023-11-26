@@ -65,7 +65,7 @@ with col1:
             print(matchIndex)
             if matches[matchIndex]:
                 name = int(st.session_state.classnames[matchIndex].upper().lower())
-                name = worker_info(name)["Name"]
+                name = worker_info(conn, name)["Name"]
                 y1, x2, y2, x1 = faceloc
                 y1, x2, y2, x1 = y1 * 4, x2 * 4, y2 * 4, x1 * 4
                 cv2.rectangle(img_file_buffer, (x1, y1), (x2, y2), (0, 255, 0), 2)
